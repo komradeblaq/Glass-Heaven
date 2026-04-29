@@ -1,39 +1,242 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glass Heaven - Multi Page Store</title>
+<title>Glass Heaven</title>
+
 <style>
-.slider{overflow:hidden;white-space:nowrap;margin:20px 0}.slide-track{display:inline-block;animation:slide 25s linear infinite}.slide-track img{height:140px;margin:0 10px;border-radius:14px;border:2px solid #d4af37}.chatbot{position:fixed;left:20px;bottom:20px;background:#111;color:#d4af37;padding:12px 14px;border-radius:16px;border:1px solid #d4af37;z-index:9999}button,.qty{background:#d4af37;color:#000;border:none;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}.search{padding:12px;border-radius:10px;width:100%;max-width:420px;margin:20px 0;border:1px solid #555;background:#111;color:#fff}.price{color:#d4af37;font-weight:700;padding:0 12px 10px}.topbar{padding:15px;text-align:center;background:#d4af37;color:#000;font-weight:700;animation:pulse 2s infinite}@keyframes pulse{50%{opacity:.6}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial;background:#0b0b0b;color:#fff}
 
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;background:#0b0b0b;color:#fff}header{padding:20px;position:sticky;top:0;background:#111;border-bottom:1px solid #333}nav{display:flex;justify-content:space-between;align-items:center}.logo{font-size:28px;font-weight:700;color:#d4af37}.hero{padding:80px 20px;text-align:center;background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),url('image_1') center/cover}.hero h1{font-size:48px;color:#d4af37}.hero p{max-width:700px;margin:15px auto;font-size:18px}.btn{display:inline-block;background:#d4af37;color:#000;padding:14px 24px;border-radius:30px;text-decoration:none;font-weight:700}.section{padding:60px 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}.card{background:#151515;border:1px solid #2e2e2e;border-radius:16px;overflow:hidden}.card img,.card video{width:100%;height:220px;object-fit:cover}.card h3{padding:12px;color:#d4af37}.card p{padding:0 12px 14px;color:#ddd}.footer{padding:40px 20px;text-align:center;border-top:1px solid #333}.small{color:#bbb} </style>
+/* HEADER */
+header{padding:20px;position:sticky;top:0;background:#111;border-bottom:1px solid #333}
+nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.logo{font-size:26px;color:#d4af37;font-weight:bold}
+.logo img{height:40px;vertical-align:middle;margin-right:8px}
 
+/* BUTTON */
+.btn{background:#d4af37;color:#000;padding:10px 16px;border-radius:20px;text-decoration:none;font-weight:bold;cursor:pointer;border:none}
+
+/* HERO */
+.hero{padding:80px 20px;text-align:center;background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),url('images/image_1') center/cover}
+.hero h1{font-size:42px;color:#d4af37}
+.hero p{margin:10px auto;max-width:600px}
+
+/* GRID */
+.section{padding:50px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+
+.card{background:#151515;border-radius:15px;overflow:hidden;border:1px solid #333}
+.card img,.card video{width:100%;height:220px;object-fit:cover}
+.card h3{padding:10px;color:#d4af37}
+.card p{padding:0 10px 10px;color:#ccc}
+
+/* CART MODAL */
+.cart-modal{
+display:none;
+position:fixed;
+top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,.8);
+z-index:9999;
+}
+.cart-box{
+background:#111;
+width:90%;
+max-width:500px;
+margin:50px auto;
+padding:20px;
+border-radius:15px;
+border:1px solid #d4af37;
+}
+.close{float:right;color:red;cursor:pointer}
+
+/* FLOAT HELP */
+.help{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#25D366;
+color:#fff;
+padding:12px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+}
+</style>
 </head>
-<body><div class='topbar'>✨ 💎 ⚡ Tesla Luxury Edition • Logo Enabled • Premium Fashion Store</div><div class='topbar' style='animation:none;background:#111;color:#d4af37'>🔥 Massive Sale Today • Premium Frames Available • Fast WhatsApp Orders</div>
-<header><nav><div class='logo'><img src='images/logo.png' style='height:42px;vertical-align:middle;margin-right:8px;border-radius:8px'> Glass Heaven</div><div style='display:flex;gap:10px;flex-wrap:wrap'><a class='btn' href='#glasses'>Glasses</a><a class='btn' href='#masks'>Masks Page</a><a class='btn' href='#cart'>Cart 🛒 <span id='cartCount'>0</span></a></div></nav></header>
-<div class='chatbot'>🤖 Need help? Chat us on WhatsApp</div><section class='hero' style='position:relative;overflow:hidden'><div style='position:absolute;inset:0;background:linear-gradient(45deg,transparent,rgba(212,175,55,.08),transparent);animation:pulse 4s infinite'></div><input class='search' placeholder='Search glasses, masks...' onkeyup='filterProducts(this.value)'>
-<h1>See The World In Style</h1><p style='color:#d4af37;font-size:22px'>Dubai Luxury Collection</p>
-<p>Premium eyeglasses, classic frames, modern fashion glasses, masks and Halloween masks. Massive collection for men and women — luxury looks for every face.</p>
-<a class='btn' href='https://www.instagram.com/glasseshaven_1?igsh=ZTBwemdubDY5YTZs'>View Instagram</a>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">
+<img src="images/logo.png"> Glass Heaven
+</div>
+
+<div>
+<button class="btn" onclick="openCart()">Cart 🛒 (<span id="count">0</span>)</button>
+<a class="btn" href="#glasses">Shop</a>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Glass Heaven</h1>
+<p>Luxury Glasses & Fashion Masks Store</p>
+<a class="btn" href="https://www.instagram.com/glasseshaven_1?igsh=ZTBwemdubDY5YTZs">Instagram</a>
 </section>
-<section class='section'><h2 style='color:#d4af37'>Trending Collection</h2><div class='slider'><div class='slide-track'><img src='images/image_1'><img src='images/image_2'><img src='images/image_3'><img src='images/image_4'><img src='images/image_5'></div></div><section class='section'><h2 style='color:#d4af37;margin-bottom:20px'>Our Huge Glass Collection (Different images, same premium Glass naming)</h2><div class='grid'>
-<div class='card' id='glasses'><img src='images/image_1'><h3 class='pname'>Glass</h3><div class='price'>₦25,000</div><p>Modern premium frame.</p><p style='padding:12px'><button onclick="addToCart('Glass')">Add to Cart</button> <a class='btn' style='padding:8px 14px;font-size:12px' href='https://wa.me/2348126773553'>Order Now</a></p></div>
-<div class='card'><img src='images/image_2'><h3 class='pname'>Glass</h3><div class='price'>₦25,000</div><p>Luxury classic fit.</p><p style='padding:12px'><button onclick="addToCart('Glass')">Add to Cart</button> <a class='btn' style='padding:8px 14px;font-size:12px' href='https://wa.me/2348126773553'>Order Now</a></p></div>
-<div class='card'><img src='image_3'><h3>Product Name 3</h3><p>Bold designer style.</p></div>
-<div class='card'><img src='image_4'><h3>Product Name 4</h3><p>Elegant everyday wear.</p></div>
-<div class='card'><img src='image_5'><h3>Product Name 5</h3><p>Unisex comfort frame.</p></div>
-<div class='card'><img src='image_6'><h3>Product Name 6</h3><p>Premium lens ready.</p></div>
-</div><p style='margin-top:15px' class='small'>Continue adding image_7 to image_20+ the same way.</p></section>
-<section class='section' id='masks'><h2 style='color:#d4af37;margin-bottom:20px'>Dedicated Masks & Halloween Masks Page Section</h2><div class='grid'><div class='card'><img src='images/image_10'><h3 class='pname'>Mask</h3><div class='price'>₦8,000</div><p>Premium everyday face mask.</p><p style='padding:12px'><button onclick="addToCart('Mask')">Add to Cart</button> <a class='btn' style='padding:8px 14px;font-size:12px' href='https://wa.me/2348126773553'>Order Now</a></p></div><div class='card'><img src='images/image_12'><h3 class='pname'>Mask</h3><div class='price'>₦8,500</div><p>Luxury fashion mask.</p><p style='padding:12px'><button onclick="addToCart('Mask')">Add to Cart</button> <a class='btn' style='padding:8px 14px;font-size:12px' href='https://wa.me/2348126773553'>Order Now</a></p></div><div class='card'><img src='images/image_13'><h3 class='pname'>Mask</h3><div class='price'>₦8,000</div><p>Fashion protective style.</p><p style='padding:12px'><button onclick="addToCart('Mask')">Add to Cart</button> <a class='btn' style='padding:8px 14px;font-size:12px' href='https://wa.me/2348126773553'>Order Now</a></p></div><div class='card'><img src='images/image_11'><h3 class='pname'>Halloween Mask</h3><div class='price'>₦15,000</div><p>Party ready scary premium mask.</p><p style='padding:12px'><button onclick="addToCart('Halloween Mask')">Add to Cart</button> <a class='btn' style='padding:8px 14px;font-size:12px' href='https://wa.me/2348126773553'>Order Now</a></p></div></div></section><section class='section'><h2 style='color:#d4af37;margin-bottom:20px'>Featured Videos (Use video_1 to video_20)</h2><div class='grid'>
-<div class='card'><video controls src='video_1'></video><h3>Showcase 1</h3><p style='padding:12px'><button onclick="addToCart('Glass Video Product')">Add to Cart</button> <a class='btn' style='padding:8px 14px;font-size:12px' href='https://wa.me/2348126773553'>Order Now</a></p></div>
-<div class='card'><video controls src='video_2'></video><h3>Showcase 2</h3><p style='padding:12px'><button onclick="addToCart('Glass Video Product')">Add to Cart</button> <a class='btn' style='padding:8px 14px;font-size:12px' href='https://wa.me/2348126773553'>Order Now</a></p></div>
-<div class='card'><video controls src='video_3'></video><h3>Showcase 3</h3><p style='padding:12px'><button onclick="addToCart('Glass Video Product')">Add to Cart</button> <a class='btn' style='padding:8px 14px;font-size:12px' href='https://wa.me/2348126773553'>Order Now</a></p></div>
-</div><p style='margin-top:15px' class='small'>Continue adding video_4 to video_15+ the same way.</p></section>
-<section class='section'><h2 style='color:#d4af37;margin-bottom:15px'>Why Choose Glass Heaven?</h2><div class='grid'>
-<div class='card'><h3>Massive Variety</h3><p>Many styles and colors available.</p></div>
-<div class='card'><h3>Premium Quality</h3><p>Durable fashionable products.</p></div>
-<div class='card'><h3>Fast Orders</h3><p>Easy WhatsApp ordering process.</p></div>
-<div class='card'><h3>For Everyone</h3><p>Male, female, masks and events.</p></div>
-</div></section>
-<a class='whatsapp-float' href='https://wa.me/2348126773553'>Chat on WhatsApp</a><footer class='footer'><p><img src='images/logo.png' style='height:60px;border-radius:12px'></p><p>WhatsApp: +234 812 677 3553</p><p>Instagram: @glasseshaven_1</p><p class='small'>Glass Heaven © 2026 • Billionaire Edition</p><section class='section'><h2 style='color:#d4af37'>Customer Reviews</h2><div class='grid'><div class='review'>⭐⭐⭐⭐⭐ Amazing quality glasses.</div><div class='review'>⭐⭐⭐⭐⭐ Fast WhatsApp response.</div><div class='review'>⭐⭐⭐⭐⭐ Premium masks and classy service.</div></div></section><section class='section' id='cart'><h2 style='color:#d4af37'>Your Cart</h2><ul id='cartItems' style='margin:20px 0'></ul><a class='btn' href='https://wa.me/2348126773553'>Order Now</a></section><footer class='footer'><p>WhatsApp: +234 812 677 3553</p><p>Instagram: @glasseshaven_1</p><p class='small'>Store images/videos should be inside /images folder on GitHub repo. Use image_1 to image_25 and video_1 to video_20.</p></footer><script>let cart=[];function renderCart(){document.getElementById('cartCount').innerText=cart.length;let ul=document.getElementById('cartItems');ul.innerHTML='';cart.forEach((item,i)=>{ul.innerHTML+=`<li style="margin:10px 0">${item} <button onclick="removeItem(${i})">Remove</button></li>`})}function addToCart(name){cart.push(name);renderCart()}function removeItem(i){cart.splice(i,1);renderCart()}renderCart();function filterProducts(v){v=v.toLowerCase();document.querySelectorAll('.card').forEach(c=>{let t=c.innerText.toLowerCase();c.style.display=t.includes(v)?'block':'none'})}</script></body></html>
-</body></html>
+
+<!-- PRODUCTS -->
+<section class="section" id="glasses">
+<h2 style="color:#d4af37">Glass Collection</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="images/image_1">
+<h3>Premium Glass</h3>
+<button class="btn" onclick="add('Premium Glass')">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="images/image_2">
+<h3>Luxury Frame</h3>
+<button class="btn" onclick="add('Luxury Frame')">Add to Cart</button>
+</div>
+
+</div>
+</section>
+
+<!-- MASKS -->
+<section class="section">
+<h2 style="color:#d4af37">Masks</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="images/image_10">
+<h3>Fashion Mask</h3>
+<button class="btn" onclick="add('Fashion Mask')">Add to Cart</button>
+</div>
+
+</div>
+</section>
+
+<!-- VIDEOS -->
+<section class="section">
+<h2 style="color:#d4af37">Videos</h2>
+
+<div class="grid">
+<div class="card">
+<video controls src="videos/video_1"></video>
+<h3>Showcase</h3>
+</div>
+</div>
+</section>
+
+<!-- CART MODAL -->
+<div class="cart-modal" id="cartModal">
+<div class="cart-box">
+
+<span class="close" onclick="closeCart()">X</span>
+
+<h2 style="color:#d4af37">Your Cart</h2>
+
+<ul id="cartList"></ul>
+
+<br>
+
+<button class="btn" onclick="checkout()">Proceed to Order</button>
+
+</div>
+</div>
+
+<!-- CHECKOUT FORM -->
+<div class="cart-modal" id="formModal">
+<div class="cart-box">
+
+<h2 style="color:#d4af37">Checkout Form</h2>
+
+<input id="name" placeholder="Your Name" style="width:100%;padding:10px;margin:5px">
+<input id="phone" placeholder="Phone Number" style="width:100%;padding:10px;margin:5px">
+<input id="location" placeholder="Location / State / Country" style="width:100%;padding:10px;margin:5px">
+<select id="gender" style="width:100%;padding:10px;margin:5px">
+<option>Male</option>
+<option>Female</option>
+</select>
+
+<br><br>
+
+<button class="btn" onclick="sendWhatsApp()">Submit Order</button>
+
+</div>
+</div>
+
+<!-- HELP -->
+<a class="help" href="https://wa.me/2348126773553">Need Help?</a>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function save(){
+localStorage.setItem("cart",JSON.stringify(cart));
+}
+
+function update(){
+document.getElementById("count").innerText = cart.length;
+let list = document.getElementById("cartList");
+list.innerHTML = "";
+cart.forEach((item,i)=>{
+list.innerHTML += `<li>${item} <button onclick="removeItem(${i})">Remove</button></li>`;
+});
+save();
+}
+
+function add(item){
+cart.push(item);
+update();
+}
+
+function removeItem(i){
+cart.splice(i,1);
+update();
+}
+
+function openCart(){
+document.getElementById("cartModal").style.display="block";
+update();
+}
+
+function closeCart(){
+document.getElementById("cartModal").style.display="none";
+}
+
+function checkout(){
+document.getElementById("cartModal").style.display="none";
+document.getElementById("formModal").style.display="block";
+}
+
+function sendWhatsApp(){
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let location=document.getElementById("location").value;
+let gender=document.getElementById("gender").value;
+
+let message =
+`Hello Glass Heaven Order:%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Location: ${location}%0A
+Gender: ${gender}%0A
+Items:%0A${cart.join("%0A")}`;
+
+window.open(`https://wa.me/2348126773553?text=${message}`,"_blank");
+}
+
+update();
+</script>
+
+</body>
+</html>
