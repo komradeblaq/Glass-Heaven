@@ -9,11 +9,31 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial;background:#0b0b0b;color:#fff}
 
-header{padding:20px;position:sticky;top:0;background:#111;border-bottom:1px solid #333;z-index:10}
+header{
+padding:20px;
+position:sticky;
+top:0;
+background:#111;
+border-bottom:1px solid #333;
+z-index:10;
+}
 
-nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
 
-.logo{display:flex;align-items:center;gap:10px;font-size:26px;color:#d4af37;font-weight:bold}
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:26px;
+color:#d4af37;
+font-weight:bold;
+}
+
 .logo img{height:40px;border-radius:8px}
 
 .btn{
@@ -110,6 +130,7 @@ Glass Heaven
 </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
 <h1>Glass Heaven</h1>
 <p>Luxury Glasses & Fashion Store</p>
@@ -121,7 +142,6 @@ Glass Heaven
 
 <div class="grid">
 
-<!-- PRODUCTS -->
 <div class="card">
 <img src="images/image_1.jpg">
 <h3>Glass 1</h3>
@@ -351,6 +371,11 @@ update();
 function checkout(){
 document.getElementById("cartModal").style.display="none";
 document.getElementById("formModal").style.display="block";
+}
+
+function backToCart(){
+document.getElementById("formModal").style.display="none";
+document.getElementById("cartModal").style.display="block";
 }
 
 function send(){
