@@ -9,22 +9,12 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial;background:#0b0b0b;color:#fff}
 
-header{padding:20px;position:sticky;top:0;background:#111;border-bottom:1px solid #333}
+header{padding:20px;position:sticky;top:0;background:#111;border-bottom:1px solid #333;z-index:10}
+
 nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
 
-.logo{
-font-size:26px;
-color:#d4af37;
-font-weight:bold;
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.logo img{
-height:40px;
-border-radius:8px;
-}
+.logo{display:flex;align-items:center;gap:10px;font-size:26px;color:#d4af37;font-weight:bold}
+.logo img{height:40px;border-radius:8px}
 
 .btn{
 background:#d4af37;
@@ -44,10 +34,16 @@ padding:80px 20px;
 text-align:center;
 background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),url('images/image_1.jpg') center/cover;
 }
+
 .hero h1{font-size:42px;color:#d4af37}
 
 .section{padding:50px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
 
 .card{
 background:#151515;
@@ -65,7 +61,6 @@ background:#000;
 
 .card h3{padding:10px;color:#d4af37}
 
-/* CART & FORM */
 .cart-modal,.form-modal{
 display:none;
 position:fixed;
@@ -84,8 +79,6 @@ padding:20px;
 border-radius:15px;
 border:1px solid #d4af37;
 }
-
-.close{float:right;color:red;cursor:pointer}
 
 .remove-btn{
 background:red;
@@ -122,57 +115,78 @@ Glass Heaven
 <p>Luxury Glasses & Fashion Store</p>
 </section>
 
-<!-- ===================== GLASSES ===================== -->
+<!-- ================= GLASSES ================= -->
 <section class="section">
 <h2 style="color:#d4af37">Glass Collection</h2>
 
 <div class="grid">
 
-<!-- 1–18 IMAGES -->
+<!-- MANUAL 18 IMAGES -->
 <div class="card"><img src="images/image_1.jpg"><h3>Glass 1</h3><button class="btn" onclick="add('Glass 1')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 1')">Order Now</button></div>
+
 <div class="card"><img src="images/image_2.jpg"><h3>Glass 2</h3><button class="btn" onclick="add('Glass 2')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 2')">Order Now</button></div>
+
 <div class="card"><img src="images/image_3.jpg"><h3>Glass 3</h3><button class="btn" onclick="add('Glass 3')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 3')">Order Now</button></div>
+
 <div class="card"><img src="images/image_4.jpg"><h3>Glass 4</h3><button class="btn" onclick="add('Glass 4')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 4')">Order Now</button></div>
+
 <div class="card"><img src="images/image_5.jpg"><h3>Glass 5</h3><button class="btn" onclick="add('Glass 5')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 5')">Order Now</button></div>
+
 <div class="card"><img src="images/image_6.jpg"><h3>Glass 6</h3><button class="btn" onclick="add('Glass 6')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 6')">Order Now</button></div>
+
 <div class="card"><img src="images/image_7.jpg"><h3>Glass 7</h3><button class="btn" onclick="add('Glass 7')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 7')">Order Now</button></div>
+
 <div class="card"><img src="images/image_8.jpg"><h3>Glass 8</h3><button class="btn" onclick="add('Glass 8')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 8')">Order Now</button></div>
+
 <div class="card"><img src="images/image_9.jpg"><h3>Glass 9</h3><button class="btn" onclick="add('Glass 9')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 9')">Order Now</button></div>
+
 <div class="card"><img src="images/image_10.jpg"><h3>Glass 10</h3><button class="btn" onclick="add('Glass 10')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 10')">Order Now</button></div>
+
 <div class="card"><img src="images/image_11.jpg"><h3>Glass 11</h3><button class="btn" onclick="add('Glass 11')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 11')">Order Now</button></div>
+
 <div class="card"><img src="images/image_12.jpg"><h3>Glass 12</h3><button class="btn" onclick="add('Glass 12')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 12')">Order Now</button></div>
+
 <div class="card"><img src="images/image_13.jpg"><h3>Glass 13</h3><button class="btn" onclick="add('Glass 13')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 13')">Order Now</button></div>
+
 <div class="card"><img src="images/image_14.jpg"><h3>Glass 14</h3><button class="btn" onclick="add('Glass 14')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 14')">Order Now</button></div>
+
 <div class="card"><img src="images/image_15.jpg"><h3>Glass 15</h3><button class="btn" onclick="add('Glass 15')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 15')">Order Now</button></div>
+
 <div class="card"><img src="images/image_16.jpg"><h3>Glass 16</h3><button class="btn" onclick="add('Glass 16')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 16')">Order Now</button></div>
+
 <div class="card"><img src="images/image_17.jpg"><h3>Glass 17</h3><button class="btn" onclick="add('Glass 17')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 17')">Order Now</button></div>
+
 <div class="card"><img src="images/image_18.jpg"><h3>Glass 18</h3><button class="btn" onclick="add('Glass 18')">Add to Cart</button><button class="btn" onclick="orderNow('Glass 18')">Order Now</button></div>
 
 </div>
 </section>
 
-<!-- ===================== VIDEOS ===================== -->
+<!-- ================= VIDEOS ================= -->
 <section class="section">
 <h2 style="color:#d4af37">Videos</h2>
 
 <div class="grid">
 
-<div class="card">
-<video controls><source src="videos/video_1.mp4"></video>
-<h3>Video 1</h3>
-<button class="btn" onclick="add('Video 1')">Add to Cart</button>
-<button class="btn" onclick="orderNow('Video 1')">Order Now</button>
-</div>
+<!-- MANUAL 10 VIDEOS -->
+<div class="card"><video controls><source src="videos/video_1.mp4" type="video/mp4"></video><h3>Video 1</h3><button class="btn" onclick="add('Video 1')">Add to Cart</button><button class="btn" onclick="orderNow('Video 1')">Order Now</button></div>
 
-<div class="card"><video controls><source src="videos/video_2.mp4"></video><h3>Video 2</h3><button class="btn" onclick="add('Video 2')">Add to Cart</button><button class="btn" onclick="orderNow('Video 2')">Order Now</button></div>
-<div class="card"><video controls><source src="videos/video_3.mp4"></video><h3>Video 3</h3><button class="btn" onclick="add('Video 3')">Add to Cart</button><button class="btn" onclick="orderNow('Video 3')">Order Now</button></div>
-<div class="card"><video controls><source src="videos/video_4.mp4"></video><h3>Video 4</h3><button class="btn" onclick="add('Video 4')">Add to Cart</button><button class="btn" onclick="orderNow('Video 4')">Order Now</button></div>
-<div class="card"><video controls><source src="videos/video_5.mp4"></video><h3>Video 5</h3><button class="btn" onclick="add('Video 5')">Add to Cart</button><button class="btn" onclick="orderNow('Video 5')">Order Now</button></div>
-<div class="card"><video controls><source src="videos/video_6.mp4"></video><h3>Video 6</h3><button class="btn" onclick="add('Video 6')">Add to Cart</button><button class="btn" onclick="orderNow('Video 6')">Order Now</button></div>
-<div class="card"><video controls><source src="videos/video_7.mp4"></video><h3>Video 7</h3><button class="btn" onclick="add('Video 7')">Add to Cart</button><button class="btn" onclick="orderNow('Video 7')">Order Now</button></div>
-<div class="card"><video controls><source src="videos/video_8.mp4"></video><h3>Video 8</h3><button class="btn" onclick="add('Video 8')">Add to Cart</button><button class="btn" onclick="orderNow('Video 8')">Order Now</button></div>
-<div class="card"><video controls><source src="videos/video_9.mp4"></video><h3>Video 9</h3><button class="btn" onclick="add('Video 9')">Add to Cart</button><button class="btn" onclick="orderNow('Video 9')">Order Now</button></div>
-<div class="card"><video controls><source src="videos/video_10.mp4"></video><h3>Video 10</h3><button class="btn" onclick="add('Video 10')">Add to Cart</button><button class="btn" onclick="orderNow('Video 10')">Order Now</button></div>
+<div class="card"><video controls><source src="videos/video_2.mp4" type="video/mp4"></video><h3>Video 2</h3><button class="btn" onclick="add('Video 2')">Add to Cart</button><button class="btn" onclick="orderNow('Video 2')">Order Now</button></div>
+
+<div class="card"><video controls><source src="videos/video_3.mp4" type="video/mp4"></video><h3>Video 3</h3><button class="btn" onclick="add('Video 3')">Add to Cart</button><button class="btn" onclick="orderNow('Video 3')">Order Now</button></div>
+
+<div class="card"><video controls><source src="videos/video_4.mp4" type="video/mp4"></video><h3>Video 4</h3><button class="btn" onclick="add('Video 4')">Add to Cart</button><button class="btn" onclick="orderNow('Video 4')">Order Now</button></div>
+
+<div class="card"><video controls><source src="videos/video_5.mp4" type="video/mp4"></video><h3>Video 5</h3><button class="btn" onclick="add('Video 5')">Add to Cart</button><button class="btn" onclick="orderNow('Video 5')">Order Now</button></div>
+
+<div class="card"><video controls><source src="videos/video_6.mp4" type="video/mp4"></video><h3>Video 6</h3><button class="btn" onclick="add('Video 6')">Add to Cart</button><button class="btn" onclick="orderNow('Video 6')">Order Now</button></div>
+
+<div class="card"><video controls><source src="videos/video_7.mp4" type="video/mp4"></video><h3>Video 7</h3><button class="btn" onclick="add('Video 7')">Add to Cart</button><button class="btn" onclick="orderNow('Video 7')">Order Now</button></div>
+
+<div class="card"><video controls><source src="videos/video_8.mp4" type="video/mp4"></video><h3>Video 8</h3><button class="btn" onclick="add('Video 8')">Add to Cart</button><button class="btn" onclick="orderNow('Video 8')">Order Now</button></div>
+
+<div class="card"><video controls><source src="videos/video_9.mp4" type="video/mp4"></video><h3>Video 9</h3><button class="btn" onclick="add('Video 9')">Add to Cart</button><button class="btn" onclick="orderNow('Video 9')">Order Now</button></div>
+
+<div class="card"><video controls><source src="videos/video_10.mp4" type="video/mp4"></video><h3>Video 10</h3><button class="btn" onclick="add('Video 10')">Add to Cart</button><button class="btn" onclick="orderNow('Video 10')">Order Now</button></div>
 
 </div>
 </section>
@@ -180,11 +194,11 @@ Glass Heaven
 <!-- CART -->
 <div class="cart-modal" id="cartModal">
 <div class="box">
-<span class="close" onclick="closeCart()">X</span>
 <h2 style="color:#d4af37">Your Cart</h2>
 <ul id="list"></ul>
 <br>
 <button class="btn" onclick="checkout()">Proceed to Order</button>
+<button class="btn" onclick="closeCart()">Close</button>
 </div>
 </div>
 
@@ -214,7 +228,9 @@ Glass Heaven
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function save(){ localStorage.setItem("cart",JSON.stringify(cart)); }
+function save(){
+localStorage.setItem("cart",JSON.stringify(cart));
+}
 
 function update(){
 document.getElementById("count").innerText = cart.length;
@@ -249,7 +265,8 @@ update();
 }
 
 function send(){
-let msg=`
+
+let msg = `
 Glass Heaven Order
 Name: ${name.value}
 Phone: ${phone.value}
@@ -259,6 +276,7 @@ Items: ${cart.join(", ")}
 `;
 
 window.open("https://wa.me/2348126773553?text="+encodeURIComponent(msg));
+
 }
 
 update();
